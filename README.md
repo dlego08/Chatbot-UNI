@@ -1,59 +1,94 @@
-# ChatbotUni
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+# Proyecto Chatbot UNI
 
-## Development server
+## Descripción General
+Este proyecto es un **chatbot inteligente** desarrollado para responder preguntas relacionadas con los procesos académicos, administrativos y servicios estudiantiles de la **Universidad Nacional de Ingeniería (UNI)**. Utiliza una arquitectura basada en **Angular** para el frontend y servicios en **AWS** para el backend, asegurando una experiencia segura, accesible y confiable para los estudiantes.
 
-To start a local development server, run:
+## Características Principales
+- Filtro de contenido inapropiado basado en **AWS Bedrock**.
+- Autenticación segura mediante **correos UNI** con **OAuth y JWT**.
+- Respuestas temáticas limitadas a procesos de la UNI utilizando **OpenSearch**.
+- Información oficial sobre convalidaciones, horarios, residencias y servicios estudiantiles.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Pasos para Instalar y Ejecutar el Proyecto
 
-## Code scaffolding
+### **Requisitos Previos**
+1. **Instalar Node.js** (versión 16 o superior):  
+   Descarga e instala Node.js desde [Node.js](https://nodejs.org/).
+   ```bash
+   node -v
+   npm -v
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Instalar Angular CLI** globalmente:  
+   ```bash
+   npm install -g @angular/cli
+   ng version
+   ```
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+3. **Instalar dependencias**:  
+   ```bash
+   npm install
+   ```
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+### **Ejecución Local**
+1. **Inicia el servidor de desarrollo**:  
+   ```bash
+   ng serve
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. **Accede a la aplicación en tu navegador**:  
+   ```
+   http://localhost:4200
+   ```
 
-```bash
-ng test
-```
+3. **Prueba las funcionalidades**:
+   - Registro de usuarios con correos institucionales UNI.
+   - Consultas relacionadas con procesos académicos y servicios de la UNI.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+### **Ejecución en Producción**
+1. **Genera la compilación para producción**:  
+   ```bash
+   ng build --prod
+   ```
 
-```bash
-ng e2e
-```
+2. **Sube la carpeta `dist/proyecto-chatbot-uni` a un bucket S3** configurado para alojar sitios estáticos.
+3. **Configura un CloudFront** para distribuir la aplicación de manera rápida y segura.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+### **Pruebas**
+1. **Ejecuta las pruebas unitarias**:  
+   ```bash
+   ng test
+   ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. **Ejecuta las pruebas de integración**:  
+   ```bash
+   ng e2e
+   ```
+
+---
+
+## Integrantes del Grupo y Roles
+
+| Nombre                | Rol                               |
+|-----------------------|-----------------------------------|
+| **Diego Sotelo**      | Líder del proyecto, manejo del backend y arquitectura. |
+| **Marcos Hidalgo**    | Supervisor del flujo de trabajo y optimización de recursos. |
+| **Cristian Mejía**    | Desarrollador principal del frontend y pruebas funcionales. |
+
+---
+
+### **Licencia**
+Este proyecto es de uso exclusivo para fines académicos y no debe ser utilizado sin autorización de los integrantes.
