@@ -1,0 +1,129 @@
+/* Estilos generales para la página de chatbot */
+.chatbot-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+/* Título del chatbot */
+.chatbot-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Contenedor de los mensajes */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: #f9f9f9; /* Fondo claro */
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+/* Mensaje del Bot */
+.chat-message.bot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; /* Ícono y texto a la izquierda */
+}
+
+.chat-message-content.bot {
+  background-color: #e7f3ff; /* Azul claro */
+  text-align: left;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 70%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bot-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px; /* Espaciado entre ícono y texto */
+}
+
+/* Mensaje del Usuario */
+.chat-message.user {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end; /* Ícono y texto a la derecha */
+}
+
+.chat-message-content.user {
+  background-color: #d3ffd3; /* Verde claro */
+  text-align: right;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 70%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-left: auto; /* Empuja el mensaje hacia la derecha */
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 10px; /* Espaciado entre texto e ícono */
+}
+
+/* Campo de entrada y botón */
+.chat-input-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+.chat-send-button {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.chat-send-button:hover {
+  background: linear-gradient(90deg, #0056b3, #003d80);
+  transform: scale(1.05);
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}

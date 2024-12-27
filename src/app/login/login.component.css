@@ -1,0 +1,82 @@
+/* General Styles */
+.login-page {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #0056b3; /* Azul */
+  padding: 30px;
+  border-radius: 20px;
+  color: #ffffff; /* Texto blanco */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff; /* Título blanco */
+}
+
+/* Form Styles */
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ffffff; /* Etiquetas blancas */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #495057; /* Texto gris oscuro */
+  background: #ffffff; /* Fondo blanco */
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+  color: #aaa; /* Placeholder gris claro */
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0056b3; /* Azul oscuro */
+  background: #ffffff; /* Fondo blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background: #e0e0e0; /* Gris claro al hover */
+  color: #0056b3; /* Azul oscuro */
+}
+
+/* Mensajes de Error */
+.error-message {
+  color: #ffccd5; /* Rojo claro */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Respuesta del Servidor */
+.server-response {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  color: #e9ecef; /* Texto gris claro */
+  font-size: 14px;
+  overflow-x: auto;
+}

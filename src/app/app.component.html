@@ -1,0 +1,20 @@
+<div class="app-header">
+  <h1>Welcome to {{ title }}!</h1>
+  <p>🎉 Bienvenido a Chatbot Uni 🎓</p>
+
+  <div *ngIf="!authService.isAuthenticated(); else loggedInNav" class="nav-buttons">
+    <button routerLink="/login">Iniciar Sesión</button>
+    <button routerLink="/register">Registrarse</button>
+  </div>
+
+  <!-- Navegación para usuarios autenticados -->
+  <ng-template #loggedInNav>
+    <div class="user-info">
+      <p>Hola, {{ authService.getEmail() }}</p>
+      <button (click)="logout()" routerLink="/login">Cerrar Sesión</button>
+    </div>
+  </ng-template>
+</div>
+
+<!-- Contenido dinámico cargado por las rutas -->
+<router-outlet></router-outlet>
