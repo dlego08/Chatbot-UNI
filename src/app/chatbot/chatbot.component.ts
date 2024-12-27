@@ -11,39 +11,53 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./chatbot.component.css'],
 })
 export class ChatbotComponent {
-  messages: { sender: string; text: string }[] = []; // Ahora se maneja con sender y text
-  userMessage: string = '';
+  messages: { sender: string; text: string }[] = []; // Historial de mensajes
+  userMessage: string = ''; // Mensaje actual del usuario
   loading: boolean = false; // Indicador de carga
-  responseError: string | null = null; // Error en caso de fallo
+  responseError: string | null = null; // Mensaje de error
 
   constructor(private http: HttpClient) {}
 
   sendMessage() {
     if (this.userMessage.trim()) {
-      this.messages.push({ sender: 'user', text: this.userMessage }); // Agregar mensaje del usuario
+      // Agregar mensaje del usuario al historial
+      this.messages.push({ sender: 'user', text: this.userMessage });
       this.loading = true;
 
-      // Recupera el token almacenado en localStorage
       const token = localStorage.getItem('auth_token');
       if (!token) {
         this.responseError = 'No estás autenticado. Por favor, inicia sesión.';
         return;
       }
 
-      // Configura los headers, incluyendo el token
+      // Configurar los headers de la solicitud
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       });
 
-      // Configura el cuerpo de la solicitud con el formato adecuado
+      // Construir el historial concatenado con un encabezado descriptivo
+      const context = this.messages
+        .slice(-5) // Limitar a los últimos 5 mensajes
+        .map((msg) => `${msg.sender === 'user' ? 'Usuario' : 'Bot'}: ${msg.text}`) // Formatear los mensajes
+        .join('\n'); // Unir con saltos de línea
+
+        const fullQuery = `
+        Eres un asistente inteligente diseñado para ayudar a responder preguntas de manera precisa y contextual. 
+        Tienes memoria de los últimos mensajes de la conversación para brindar respuestas relevantes. 
+        Historial de conversación:
+        ${context}
+        Usuario: ${this.userMessage}
+        Bot:`;
+
+      // Cuerpo de la solicitud
       const body = {
         body: JSON.stringify({
-          query: this.userMessage,
+          query: fullQuery, // Prompt mejorado
         }),
       };
 
-      // Realiza la solicitud HTTP POST al endpoint
+      // Realizar la solicitud HTTP al backend
       this.http
         .post(
           'https://nowmrpmvyj.execute-api.us-east-1.amazonaws.com/dev/bot',
@@ -53,7 +67,6 @@ export class ChatbotComponent {
         .subscribe({
           next: (response: any) => {
             this.loading = false;
-            // Procesa la respuesta del bot
             try {
               const parsedResponse = JSON.parse(response?.body);
               this.messages.push({
@@ -72,7 +85,8 @@ export class ChatbotComponent {
           },
         });
 
-      this.userMessage = ''; // Limpiar el campo de entrada
+      // Limpiar el campo de entrada del usuario
+      this.userMessage = '';
     }
   }
 }
