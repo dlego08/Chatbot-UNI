@@ -1,0 +1,18 @@
+runtime: nodejs18
+env: standard
+instance_class: F1
+handlers:
+  - url: /
+    static_files: dist/chatbot-uni/browser/index.html
+    upload: ddist/chatbot-uni/browser/index.html
+  - url: /(.*)
+    static_files: dist/chatbot-uni/browser/\1
+    upload: dist/chatbot-uni/browser/.*
+  - url: .*
+    script: auto
+automatic_scaling:
+  min_idle_instances: automatic
+  max_idle_instances: automatic
+  min_pending_latency: automatic
+  max_pending_latency: automatic
+service_account: chatbot-445904@appspot.gserviceaccount.com

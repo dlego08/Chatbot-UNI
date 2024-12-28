@@ -1,0 +1,51 @@
+<div class="chatbot-page">
+  <h2 class="chatbot-title">Chatbot</h2>
+
+  <div class="chat-container">
+    <!-- Mensaje inicial del Bot -->
+    <div class="chat-message bot">
+      <img src="/icon.png" alt="Bot Icon" class="chat-icon bot-icon" />
+      <div class="chat-message-content bot">
+        ¡Hola! ¿En qué puedo ayudarte hoy?
+      </div>
+    </div>
+
+    <!-- Mensajes dinámicos -->
+    <div *ngFor="let message of messages" class="chat-message" [ngClass]="{'bot': message.sender === 'bot', 'user': message.sender === 'user'}">
+      
+      <!-- Mensajes del Bot -->
+      <div *ngIf="message.sender === 'bot'" class="chat-message bot">
+        <img src="/icon.png" alt="Bot Icon" class="chat-icon bot-icon" />
+        <div class="chat-message-content bot">
+          {{ message.text }}
+        </div>
+      </div>
+
+      <!-- Mensajes del Usuario -->
+      <div *ngIf="message.sender === 'user'" class="chat-message user">
+        <div class="chat-message-content user">
+          {{ message.text }}
+        </div>
+        <img src="/icon.png" alt="User Icon" class="chat-icon user-icon" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Área de entrada de mensaje -->
+  <div class="chat-input-container">
+    <input
+      [(ngModel)]="userMessage"
+      class="chat-input"
+      placeholder="Escribe tu mensaje..."
+      (keydown.enter)="sendMessage()"
+    />
+    <button (click)="sendMessage()" class="chat-send-button" [disabled]="loading">
+      {{ loading ? 'Cargando...' : 'Enviar' }}
+    </button>
+  </div>
+
+  <!-- Mostrar mensaje de error en caso de que haya uno -->
+  <div *ngIf="responseError" class="error-message">
+    <p>{{ responseError }}</p>
+  </div>
+</div>

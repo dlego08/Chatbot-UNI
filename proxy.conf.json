@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://t7fh6nmnsb.execute-api.us-east-1.amazonaws.com",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  

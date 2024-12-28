@@ -1,0 +1,104 @@
+/* General Styles */
+.register-page {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #ff4b5c; /* Rojo */
+    padding: 30px;
+    border-radius: 20px;
+    color: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styles */
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background: #ffffff;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  input::placeholder {
+    color: #aaa;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff4b5c;
+    background: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  button:hover {
+    background: #ffe6e6;
+    color: #ffae4b;
+  }
+  
+  /* Step 2: Verification */
+  .verification-step {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .verification-step h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #ffd1d1;
+  }
+  
+  .verification-step input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #333;
+  }
+  
+  .verification-step button {
+    margin-top: 10px;
+    background: #fff;
+    color: #ff4b5c;
+  }
+  
+  .verification-step button:hover {
+    background: #ffe6e6;
+  }
+  
+  /* Response Messages */
+  .server-response {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffd1d1;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+  
